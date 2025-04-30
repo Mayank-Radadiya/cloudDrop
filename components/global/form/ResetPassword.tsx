@@ -28,11 +28,8 @@ import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import { ClerkAPIError } from "@clerk/types";
 import VerifyEmail from "./VerifyEmail";
 
-interface ResetPasswordProps {
-  token?: string;
-}
 
-const ResetPassword = ({ token }: ResetPasswordProps) => {
+const ResetPassword = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);

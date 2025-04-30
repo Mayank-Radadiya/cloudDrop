@@ -42,6 +42,8 @@ const SignInForm = ({}: SignInFormProps) => {
     resolver: zodResolver(signInSchema),
   });
 
+  console.log("SignInForm rendered");
+
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
     setIsLoading(true);
     setError(undefined);

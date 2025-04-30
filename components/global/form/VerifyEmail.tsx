@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Loader2 } from "lucide-react";
-
+import { memo } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -27,7 +27,7 @@ interface VerifyEmailProps {
   error: ClerkAPIError[] | undefined;
 }
 
-export default function VerifyEmail({
+function VerifyEmail({
   emailCode,
   setEmailCode,
   handleVerify,
@@ -35,6 +35,7 @@ export default function VerifyEmail({
   error,
 }: VerifyEmailProps) {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+  console.log("VerifyEmail rendered");
 
   useEffect(() => {
     // Focus the first input on mount
@@ -178,3 +179,5 @@ export default function VerifyEmail({
     </div>
   );
 }
+
+export default memo(VerifyEmail);

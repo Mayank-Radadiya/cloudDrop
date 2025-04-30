@@ -26,9 +26,8 @@ import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import { ClerkAPIError } from "@clerk/types";
 import { forgotPasswordEmailSchema } from "@/zodSchema/forgotPasswordSchema";
 
-interface ForgotPasswordProps {}
 
-const ForgotPassword = ({}: ForgotPasswordProps) => {
+const ForgotPassword = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { signIn, isLoaded, setActive } = useSignIn();

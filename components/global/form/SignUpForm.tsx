@@ -55,6 +55,7 @@ const SignUpForm = () => {
       conformationPassword: "",
     },
   });
+  console.log("SignUpForm rendered");
 
   // When user submit data from form.
   // Create a new user on clerk and send verification email.
@@ -207,7 +208,7 @@ const SignUpForm = () => {
                         required
                         className="h-11 pr-10  mt-1"
                       />
-                      <div id="clerk-captcha" />{" "}
+                      <div id="clerk-captcha mt-4" />{" "}
                       {/* This is required for Smart CAPTCHA */}
                       <Button
                         type="button"
