@@ -28,7 +28,6 @@ import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import { ClerkAPIError } from "@clerk/types";
 import VerifyEmail from "./VerifyEmail";
 
-
 const ResetPassword = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -112,7 +111,10 @@ const ResetPassword = () => {
           error={error}
         />
       ) : (
-        <div className="flex min-h-screen flex-col items-center justify-center bg-muted/30 p-4">
+        <div
+          className="flex min-h-screen flex-col items-center justify-center bg-muted/30 p-4"
+          style={{ backgroundImage: "var(--backgroundImage)" }}
+        >
           <div className="absolute right-4 top-4 flex items-center gap-2">
             <CustomToggleButton />
           </div>

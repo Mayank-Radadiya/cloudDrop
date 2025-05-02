@@ -83,6 +83,11 @@ body {
   --toast-bg: rgba(255, 255, 255, 0.85); /* Soft white frosted glass */
   --toast-text: #333333; /* Dark gray text for light theme */
   --toast-border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
+  --backgroundImage: background-image: radial-gradient(
+    circle at center center,
+    rgb(110, 110, 110),
+    rgb(255, 255, 255)
+  );
 }
 
 .dark {
@@ -120,6 +125,11 @@ body {
   --toast-bg: rgba(30, 30, 30, 0.85); /* Dark frosted glass */
   --toast-text: #ffffff; /* White text for dark theme */
   --toast-border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  --backgroundImage:radial-gradient(
+    circle at center center,
+    rgb(50, 50, 50),
+    rgb(8, 8, 8)
+  );
 }
 
 @layer base {

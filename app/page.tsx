@@ -2,6 +2,7 @@
 import CustomToggleButton from "@/components/global/custom/CustomToggleButton";
 import { Logo } from "@/components/global/custom/Logo";
 import { Button } from "@/components/ui/button";
+import { useUser } from "@clerk/nextjs";
 import { motion, useInView } from "framer-motion";
 import {
   ArrowRight,
@@ -15,6 +16,8 @@ import Link from "next/link";
 import { useRef } from "react";
 
 export default function Home() {
+  const user = useUser();
+
   const featuresRef = useRef(null);
   const featuresInView = useInView(featuresRef, { once: true, amount: 0.2 });
 
@@ -30,17 +33,35 @@ export default function Home() {
         <div className="container flex h-16 items-center justify-between w-full ml-24">
           <Logo />
           <div className="flex items-center gap-6">
-            <Button variant="ghost" className="border">
-              <Link
-                href="/sign-in"
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                Sign In
-              </Link>
-            </Button>
-            <Button asChild>
-              <Link href="/sign-up">Get Started</Link>
-            </Button>
+            {!user.isSignedIn && (
+              <Button variant="ghost" className="border">
+                <Link
+                  href="/sign-in"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Sign In
+                </Link>
+              </Button>
+            )}
+            {user.isSignedIn ? (
+              <Button className="border">
+                <Link
+                  href="/dashboard"
+                  className="text-sm font-medium text-foreground transition-colors hover:text-blue-100"
+                >
+                  Dashboard
+                </Link>
+              </Button>
+            ) : (
+              <Button  className="border ">
+                <Link
+                  href="/sign-up"
+                  className="text-sm font-medium  transition-colors hover:text-foreground"
+                >
+                  Get start
+                </Link>
+              </Button>
+            )}
 
             <CustomToggleButton />
           </div>
