@@ -21,7 +21,7 @@ export const files = pgTable("files", {
 
   // Ownership
   userId: text("user_id").notNull(),
-  parentId: text("parent_id"),
+  parentId: uuid("parent_id"),
 
   // flags
   isFolder: boolean("is_folder").default(false).notNull(),
